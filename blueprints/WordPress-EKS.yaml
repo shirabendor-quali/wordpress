@@ -19,11 +19,6 @@ inputs:
 
 # These are the applications that will be deployed in this blueprint
 applications:
-  - mysql:  # One instance of mysql (see: applications/mysql/mysql.yaml)
-      input_values:
-        - DB_USER: $DB_USER
-        - DB_PASS: $DB_PASS
-        - DB_NAME: $DB_NAME
   # One instance of WordPress (see: applications/wordpress/wordpress.yaml)
   - wordpress:
       instances: 1
