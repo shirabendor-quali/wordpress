@@ -33,3 +33,5 @@ outputs:        # Declaring the outputs from Terraform that will be recognized i
 permissions:
   aws:
     role_arn: $role_arn    #role assumed by service
+debugging:
+  show_tf_plan: true
