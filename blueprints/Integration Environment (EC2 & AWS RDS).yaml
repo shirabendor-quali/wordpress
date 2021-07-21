@@ -47,3 +47,4 @@ services:
         - VPC_ID: $colony.environment.virtual_network_id  # Sandbox VPC Id
 debugging:
   bastion_availability: enabled-on
+  show_terraform_plan: true
