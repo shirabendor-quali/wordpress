@@ -32,6 +32,11 @@ applications:
         - DB_PASS: $DB_PASS
         - DB_NAME: $DB_NAME
         - DB_HOSTNAME: $colony.services.rds-mysql.outputs.hostname
+
+        - WORDPRESS_DB_HOST: $colony.services.rds-mysql.outputs.hostname:3306
+        - WORDPRESS_DB_USER: $DB_USER
+        - WORDPRESS_DB_PASSWORD: $DB_PASS
+        - WORDPRESS_DB_NAME: $DB_NAME
       # The wodpress site depends on MySQL and will start deploying
       # only when the database is ready
       depends_on:
