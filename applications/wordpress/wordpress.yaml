@@ -1,10 +1,10 @@
 kind: application
 inputs:
- - DB_NAME: $DB_NAME
-        - DB_USER: $DB_USER
-        - DB_PASS: $DB_PASS
-        - SANDBOX_ID: $colony.environment.id
-        - VPC_ID: $colony.environment.virtual_network_id  # Sandbox VPC Id  - DOCKER_TAG
+ - DB_NAME
+ - DB_USER
+ - DB_PASS
+ - SANDBOX_ID
+ - VPC_ID
 
 infrastructure:
   connectivity:
