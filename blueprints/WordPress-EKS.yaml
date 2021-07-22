@@ -28,8 +28,8 @@ applications:
   - wordpress:
       instances: 1
       input_values:
-      
-        - WORDPRESS_DB_HOST: $colony.services.rds-mysql.outputs.hostname:3306
+        - DB_HOSTNAME: $colony.applications.mysql.dns
+        - WORDPRESS_DB_HOST: DB_HOSTNAME:3306
         - WORDPRESS_DB_USER: $DB_USER
         - WORDPRESS_DB_PASSWORD: $DB_PASS
         - WORDPRESS_DB_NAME: $DB_NAME
