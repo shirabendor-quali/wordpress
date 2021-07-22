@@ -25,18 +25,6 @@ inputs:
 applications:
   # One instance of java-spring-website
   # (see: applications/java-spring-website/java-spring-website.yaml)
-  - java-spring-website:
-      instances: 1
-      input_values:
-        - DB_USER: $DB_USER
-        - DB_PASS: $DB_PASS
-        - DB_NAME: $DB_NAME
-        # DNS name output from the RDS service
-        - DB_HOSTNAME: $colony.services.rds-mysql.outputs.hostname
-      # The website depends on MySQL and will start deploying only when
-      # the database is ready
-      depends_on:
-        - rds-mysql
   - mysql:  # One instance of mysql (see: applications/mysql/mysql.yaml)
       input_values:
         - DB_USER: $DB_USER
