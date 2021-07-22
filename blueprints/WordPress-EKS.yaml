@@ -37,7 +37,7 @@ applications:
       # the database is ready
       depends_on:
         - rds-mysql
-    - mysql:  # One instance of mysql (see: applications/mysql/mysql.yaml)
+  - mysql:  # One instance of mysql (see: applications/mysql/mysql.yaml)
       input_values:
         - DB_USER: $DB_USER
         - DB_PASS: $DB_PASS
