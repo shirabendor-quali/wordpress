@@ -1,11 +1,9 @@
 kind: application
 inputs:
- - DB_NAME
- - DB_USER
- - DB_PASS
- - SANDBOX_ID
- - VPC_ID
-
+  - DB_USER
+  - DB_PASS
+  - DB_NAME
+  - DB_HOSTNAME
 infrastructure:
   connectivity:
     external:
