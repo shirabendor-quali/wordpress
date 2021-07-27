@@ -6,7 +6,7 @@ inputs:
   - WORDPRESS_DB_NAME
 infrastructure:
   connectivity:
-    internal:
+    external:
       - port_info:
           port: 80
           path: ''
