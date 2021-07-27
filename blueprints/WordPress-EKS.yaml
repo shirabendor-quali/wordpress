@@ -26,7 +26,7 @@ inputs:
 applications:
 
   # One instance of WordPress (see: applications/wordpress/wordpress.yaml)
-  - wordpress:
+  - wordpress-EKS:
       input_values:
         - WORDPRESS_DB_HOST: "${colony.services.rds-mysql.outputs.hostname}:3306"
         - WORDPRESS_DB_USER: $DB_USER
@@ -36,7 +36,6 @@ applications:
       # only when the database is ready
       depends_on:
         - rds-mysql
-  - wordpress-EC2
 services:
   - rds-mysql:  # One instance of mysql (see: services/rds-mysql/rds-mysql.yaml)
       input_values:
