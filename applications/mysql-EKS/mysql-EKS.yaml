@@ -24,7 +24,7 @@ source:
   image:    
     username: adminuser
     docker_image:
-       - name: mysql:
+       - name: mysql
          tag: 5.7
          username: root
   os_type: linux
