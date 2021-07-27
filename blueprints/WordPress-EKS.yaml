@@ -27,7 +27,6 @@ applications:
 
   # One instance of WordPress (see: applications/wordpress/wordpress.yaml)
   - wordpress:
-      instances: 1
       input_values:
         - WORDPRESS_DB_HOST: "${colony.services.rds-mysql.outputs.hostname}:3306"
         - WORDPRESS_DB_USER: $DB_USER
@@ -37,7 +36,7 @@ applications:
       # only when the database is ready
       depends_on:
         - rds-mysql
-
+  - wordpress-EC2
 services:
   - rds-mysql:  # One instance of mysql (see: services/rds-mysql/rds-mysql.yaml)
       input_values:
@@ -46,6 +45,7 @@ services:
         - DB_PASS: $DB_PASS
         - SANDBOX_ID: $colony.environment.id
         - VPC_ID: $colony.environment.virtual_network_id  # Sandbox VPC Id
+  
 debugging:
   bastion_availability: enabled-on
   show_terraform_plan: true
