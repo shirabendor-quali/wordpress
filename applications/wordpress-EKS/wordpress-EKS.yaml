@@ -16,7 +16,7 @@ infrastructure:
         cpu: 250m
 configuration:
   start:
-    command: docker-entrypoint.sh php-fpm
+    command: docker-entrypoint.sh apache2-foreground
   healthcheck:
     timeout: 100
     wait_for_ports: ALL
