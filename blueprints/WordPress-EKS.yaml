@@ -34,7 +34,6 @@ applications:
       # only when the database is ready
       depends_on:
         - mysql-EKS
-        - rds-mysql
   - mysql-EKS:
       input_values:
         - MYSQL_ROOT_PASSWORD: $DB_PASS
