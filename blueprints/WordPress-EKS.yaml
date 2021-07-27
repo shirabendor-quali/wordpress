@@ -4,12 +4,10 @@ kind: blueprint
 
 metadata:
   description: >
-    Java application with a managed RDS database deployed with TerraForm.
+    wordpress on K8s + RDS
 
 clouds:
   - AWS/EKS
-  - AWS: eu-west-1
-
 # These are the blueprint parameters and their default values.
 # The values can be changed when creating a sandbox based on this
 # blueprint.
@@ -36,6 +34,13 @@ applications:
       # only when the database is ready
       depends_on:
         - rds-mysql
+        - mysql-EKS
+  - mysql-EKS:
+      input_values:
+        - MYSQL_ROOT_PASSWORD: $DB_PASS
+        - MYSQL_DATABASE: $DB_NAME
+        - MYSQL_USER: $DB_USER
+        - MYSQL_PASSWORD: $DB_PASS
 services:
   - rds-mysql:  # One instance of mysql (see: services/rds-mysql/rds-mysql.yaml)
       input_values:
