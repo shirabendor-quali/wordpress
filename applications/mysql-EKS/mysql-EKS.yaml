@@ -16,7 +16,7 @@ infrastructure:
         cpu: 250m
 configuration:
   start:
-    command: docker-entrypoint.sh mongod
+    command: docker-entrypoint.sh mysqld
   healthcheck:
     timeout: 1000
     wait_for_ports: ALL
