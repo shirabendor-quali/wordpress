@@ -12,7 +12,7 @@ clouds:
 # The values can be changed when creating a sandbox based on this
 # blueprint.
 inputs:
-  - DB_USER: root  # Used to define the db admin account
+  - DB_USER: wordpress  # Used to define the db admin account
   - DB_PASS:
       display_style: masked
       description: please set the root database password
