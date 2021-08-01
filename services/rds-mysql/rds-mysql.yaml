@@ -27,7 +27,7 @@ variables:
     - username: $DB_USER
     - password: $DB_PASS
     - sandbox_id: $SANDBOX_ID
-    - vpc_id: $VPC_ID
+    - vpc_id: vpc-1f9d3f66 # MUST CHANGE: IT'S THE SPECIFIC EKS CLUSTER VPC!
 outputs:        # Declaring the outputs from Terraform that will be recognized in this blueprint
   - hostname    # The RDS host name will be used as an input to the application consuming the RDS service
 permissions:
