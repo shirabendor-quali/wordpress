@@ -44,7 +44,7 @@ services:
         - DB_USER: $DB_USER
         - DB_PASS: $DB_PASS
         - SANDBOX_ID: $colony.environment.id
-        - VPC_ID: $colony.environment.virtual_network_id  # Sandbox VPC Id
+        - VPC_ID: vpc-1f9d3f66 #$colony.environment.virtual_network_id  # Sandbox VPC Id
 debugging:
   bastion_availability: enabled-on
   show_terraform_plan: true
