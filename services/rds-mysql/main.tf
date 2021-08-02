@@ -1,6 +1,5 @@
 provider "aws" {
   region = "eu-west-1"
-  version = "2.0.0"
 }
 
 data "aws_vpc" "default" {
@@ -9,18 +8,11 @@ data "aws_vpc" "default" {
 
 data "aws_subnet_ids" "apps_subnets" {
   vpc_id = "vpc-1f9d3f66"
-  tags = {
-    Name = "subnet-*"
-  }
 }
 
 resource "aws_db_subnet_group" "rds" {
   name = "rds-${var.sandbox_id}-subnet-group"
-  subnet_ids = ["${data.aws_subnet_ids.apps_subnets.ids}"]
-
-  tags = {
-    Name = "RDS-subnet-group"
-  }
+  subnet_ids = ["subnet-ef729da4","subnet-5b756a3d","subnet-8ddf86d7"]
 }
 
 
