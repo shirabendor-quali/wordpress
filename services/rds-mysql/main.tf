@@ -4,13 +4,13 @@ provider "aws" {
 }
 
 data "aws_vpc" "default" {
-  id = "${var.vpc_id}"
+  id = "vpc-1f9d3f66"
 }
 
 data "aws_subnet_ids" "apps_subnets" {
-  vpc_id = "${var.vpc_id}"
+  vpc_id = "vpc-1f9d3f66"
   tags = {
-    Name = "app-subnet*"
+    Name = "subnet-*"
   }
 }
 
