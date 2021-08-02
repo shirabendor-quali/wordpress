@@ -8,7 +8,6 @@ inputs:
   - DB_USER
   - DB_PASS
   - SANDBOX_ID
-  - VPC_ID
   - role_arn: PowerUserAccess
   # role_arn is a default role that works out of the box in AWS,
   # It is recommended that you create a specific role with relevant permissions and provide its ARN here.
@@ -27,7 +26,6 @@ variables:
     - username: $DB_USER
     - password: $DB_PASS
     - sandbox_id: $SANDBOX_ID
-    - vpc_id: $VPC_ID
 outputs:        # Declaring the outputs from Terraform that will be recognized in this blueprint
   - hostname    # The RDS host name will be used as an input to the application consuming the RDS service
 permissions:

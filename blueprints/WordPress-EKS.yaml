@@ -58,7 +58,6 @@ services:
         - DB_USER: $DB_USER
         - DB_PASS: $DB_PASS
         - SANDBOX_ID: $colony.environment.id
-        - VPC_ID: vpc-1f9d3f66 # MUST CHANGE: THIS IS A SPECIFIC STATUC VPC ID !
 debugging:
   bastion_availability: enabled-on
 ingress:
