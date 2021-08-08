@@ -4,10 +4,10 @@ kind: blueprint
 
 metadata:
   description: >
-    wordpress on EKS
+    wordpress on EC2 + RDS
 
 clouds:
-  - AWS/EKS
+  - AWS: eu-west-1
 
 # These are the blueprint parameters and their default values.
 # The values can be changed when creating a sandbox based on this
@@ -23,19 +23,25 @@ inputs:
 
 # These are the applications that will be deployed in this blueprint
 applications:
- - wordpress-EKS:
+ - wordpress-EC2:
+      instances: 1
       input_values:
-        - WORDPRESS_DB_HOST: "${colony.applications.mysql-EKS.dns}:3306"
-        - WORDPRESS_DB_USER: $DB_USER
-        - WORDPRESS_DB_PASSWORD: $DB_PASS
-        - WORDPRESS_DB_NAME: $DB_NAME
+        - DB_USER: $DB_USER
+        - DB_PASS: $DB_PASS
+        - DB_NAME: $DB_NAME
+        - DB_HOSTNAME: $colony.applications.mysql.dns
       # The wodpress site depends on MySQL and will start deploying
       # only when the database is ready
       depends_on:
-        - mysql-EKS
- - mysql-EKS:
+        - rds-mysql
+        
+services:
+  - rds-mysql:  # One instance of mysql (see: services/rds-mysql/rds-mysql.yaml)
       input_values:
-        - MYSQL_ROOT_PASSWORD: $DB_PASS
-        - MYSQL_DATABASE: $DB_NAME
-        - MYSQL_USER: $DB_USER
-        - MYSQL_PASSWORD: $DB_PASS
+        - DB_NAME: $DB_NAME
+        - DB_USER: $DB_USER
+        - DB_PASS: $DB_PASS
+        - SANDBOX_ID: $colony.environment.id
+
+debugging:
+  bastion_availability: enabled-on
