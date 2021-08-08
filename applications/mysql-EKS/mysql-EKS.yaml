@@ -9,11 +9,11 @@ infrastructure:
     internal:
      - port_info:
         port: 3306
-        path: ''
   compute:
     spec:        
       kubernetes:
         cpu: 250m
+        ram: 64Mi 
 configuration:
   start:
     command: docker-entrypoint.sh mysqld
@@ -22,7 +22,6 @@ configuration:
     wait_for_ports: ALL
 source:
   image:    
-    username: adminuser
     docker_image:
        - name: mysql
          tag: 5.7

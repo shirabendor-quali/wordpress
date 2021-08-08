@@ -9,11 +9,11 @@ infrastructure:
     external:
       - port_info:
           port: 80
-          path: ''
   compute:
     spec:        
       kubernetes:
         cpu: 250m
+        ram: 64Mi 
 configuration:
   start:
     command: docker-entrypoint.sh apache2-foreground
@@ -22,7 +22,6 @@ configuration:
     wait_for_ports: ALL
 source:
   image:    
-    username: adminuser
     docker_image: 
        - name: wordpress
          tag: latest
