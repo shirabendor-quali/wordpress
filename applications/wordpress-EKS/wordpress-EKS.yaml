@@ -10,7 +10,7 @@ infrastructure:
       - port_info:
           port: 80
   compute:
-    spec:        
+    spec:
       kubernetes:
         cpu: 250m
         ram: 64Mi 
