@@ -25,6 +25,5 @@ source:
     docker_image: 
        - name: wordpress
          tag: latest
-         username: root
   os_type: linux
 spec_version: 1
