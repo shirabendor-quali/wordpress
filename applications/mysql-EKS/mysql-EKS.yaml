@@ -25,6 +25,6 @@ source:
   image:    
     docker_image:
        - name: mysql
-         tag: latest
+         tag: 8.0
   os_type: linux
 spec_version: 1
