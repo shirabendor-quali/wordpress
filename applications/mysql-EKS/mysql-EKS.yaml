@@ -13,8 +13,8 @@ infrastructure:
   compute:
     spec:        
       kubernetes:
-        cpu: 2500m
-        ram: 640Mi 
+        cpu: 500m
+        ram: 128Mi 
 configuration:
   start:
     command: docker-entrypoint.sh mysqld
