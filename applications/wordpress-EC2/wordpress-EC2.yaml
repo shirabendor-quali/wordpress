@@ -30,8 +30,7 @@ infrastructure:
     external:
       - port_info:
           port: 80
-          ingress-healthcheck:
-            status-codes: 302
+
 # This is a clean Ubuntu server image that will be
 # used to create a new EC2 instance in the defined AWS region
 source:
