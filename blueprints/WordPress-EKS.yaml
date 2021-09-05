@@ -39,3 +39,11 @@ applications:
         - MYSQL_DATABASE: $DB_NAME
         - MYSQL_USER: $DB_USER
         - MYSQL_PASSWORD: $DB_PASS
+services:
+  - rds-mysql:  # One instance of mysql (see: services/rds-mysql/rds-mysql.yaml)
+      input_values:
+        - DB_NAME: $DB_NAME
+        - DB_USER: $DB_USER
+        - DB_PASS: $DB_PASS
+        - SANDBOX_ID: $torque.environment.id
+        - VPC_ID: $torque.environment.virtual_network_id  # Sandbox VPC Id
